@@ -1,104 +1,981 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>業務用エアコンLP</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>業務用エアコン無料見積もり | ProCool Air Design</title>
+  <meta name="description" content="電気代最大35%削減、最短7日導入。店舗・オフィス・クリニック向けの業務用エアコン設計・施工・保守までワンストップ対応。無料見積もり受付中。" />
+  <style>
+    :root{
+      --bg:#061324;
+      --bg2:#0b1f39;
+      --panel:rgba(255,255,255,.08);
+      --panel-strong:rgba(255,255,255,.12);
+      --line:rgba(255,255,255,.12);
+      --text:#eef5ff;
+      --muted:#b9c8db;
+      --accent:#ff8a00;
+      --accent-dark:#df6f00;
+      --sub:#5dd6ff;
+      --sub2:#78f0c6;
+      --white:#fff;
+      --shadow:0 20px 50px rgba(0,0,0,.28);
+      --radius:22px;
+      --max:1180px;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #0a1a2f;
-  color: #fff;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, #174980 0%, transparent 28%),
+        radial-gradient(circle at 90% 20%, #0d3358 0%, transparent 26%),
+        linear-gradient(160deg,var(--bg),var(--bg2));
+      line-height:1.75;
+    }
 
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
-}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max), 92vw);margin:0 auto}
+    .section{padding:88px 0}
+    .section-tight{padding:68px 0}
+    .center{text-align:center}
 
-h1,h2,h3 {
-  margin: 0 0 10px;
-}
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(12px);
+      background:rgba(6,19,36,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .logo{
+      font-size:1.35rem;
+      font-weight:800;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+    .logo span{color:var(--sub)}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      flex-wrap:wrap;
+    }
+    .nav-links a{
+      color:var(--muted);
+      font-size:.95rem;
+      font-weight:600;
+      transition:.2s ease;
+    }
+    .nav-links a:hover{color:var(--white)}
+    .nav-cta{
+      padding:11px 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),#ffab2f);
+      color:#1c2430;
+      font-weight:800;
+      box-shadow:0 12px 24px rgba(255,138,0,.25);
+    }
 
-section {
-  padding: 60px 0;
-}
+    .hero{
+      padding:78px 0 56px;
+    }
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:34px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:.84rem;
+      font-weight:700;
+      padding:7px 14px;
+      border-radius:999px;
+      border:1px solid rgba(93,214,255,.45);
+      color:var(--sub);
+      background:rgba(255,255,255,.04);
+    }
+    h1{
+      margin:18px 0 20px;
+      font-size:clamp(2.2rem,4.8vw,4.3rem);
+      line-height:1.18;
+      letter-spacing:.01em;
+    }
+    .hero-lead{
+      font-size:1.03rem;
+      color:var(--muted);
+      max-width:700px;
+      margin:0 0 22px;
+    }
+    .hero-list{
+      list-style:none;
+      padding:0;
+      margin:0 0 30px;
+      display:grid;
+      gap:10px;
+    }
+    .hero-list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:#e8f2ff;
+      font-weight:600;
+    }
+    .hero-list li::before{
+      content:"✓";
+      color:var(--sub2);
+      font-weight:900;
+    }
+    .cta-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:0 24px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-size:1rem;
+      font-weight:800;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--accent),#ffad33);
+      color:#152031;
+      box-shadow:0 14px 30px rgba(255,138,0,.28);
+    }
+    .btn-primary:hover{background:linear-gradient(135deg,var(--accent-dark),#ff9d14)}
+    .btn-secondary{
+      background:transparent;
+      color:var(--white);
+      border:1px solid rgba(255,255,255,.28);
+    }
+    .safe-note{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:.93rem;
+      font-weight:600;
+    }
 
-.hero {
-  text-align: center;
-}
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card h3{
+      margin:0 0 10px;
+      font-size:1.35rem;
+    }
+    .hero-card p{
+      margin:0 0 18px;
+      color:var(--muted);
+    }
+    .kpi-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+    }
+    .kpi{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      padding:16px;
+    }
+    .kpi strong{
+      display:block;
+      font-size:1.7rem;
+      line-height:1.1;
+      color:var(--white);
+      margin-bottom:6px;
+    }
+    .kpi span{
+      font-size:.95rem;
+      color:var(--muted);
+      font-weight:700;
+    }
 
-.cta {
-  background: orange;
-  color: #fff;
-  padding: 15px 30px;
-  border-radius: 30px;
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-}
+    .section-head{
+      margin-bottom:30px;
+    }
+    .section-head .tag{
+      display:inline-block;
+      font-size:.82rem;
+      font-weight:800;
+      color:var(--sub);
+      letter-spacing:.05em;
+      margin-bottom:10px;
+    }
+    .section-head h2{
+      margin:0 0 12px;
+      font-size:clamp(1.8rem,3.2vw,2.5rem);
+      line-height:1.3;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width:760px;
+    }
 
-.grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
 
-.card {
-  background: #13294b;
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1;
-}
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 12px 30px rgba(0,0,0,.12);
+      transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(255,255,255,.22);
+      background:var(--panel-strong);
+    }
+    .card h3,.card h4{
+      margin:0 0 12px;
+      line-height:1.4;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+    }
 
-form input, form textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-</style>
+    .problem-card{
+      border-left:4px solid var(--accent);
+    }
+
+    .strength-list{
+      display:grid;
+      gap:14px;
+      margin-top:8px;
+    }
+    .strength-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:16px 18px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .strength-item::before{
+      content:"✓";
+      color:var(--sub2);
+      font-weight:900;
+      font-size:1.05rem;
+      line-height:1.4;
+    }
+
+    .trust-stats .card h3{
+      font-size:1rem;
+      color:var(--muted);
+    }
+    .big-num{
+      font-size:2.1rem;
+      line-height:1.1;
+      font-weight:900;
+      color:var(--white);
+      margin-bottom:8px;
+    }
+
+    .voice-card p + p{
+      margin-top:14px;
+    }
+    .voice-name{
+      color:#edf5ff;
+      font-weight:800;
+      font-size:.95rem;
+    }
+
+    .case-card .meta{
+      display:inline-block;
+      margin-top:14px;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(255,138,0,.14);
+      color:#ffd6a7;
+      font-size:.82rem;
+      font-weight:800;
+    }
+
+    .price-card{
+      position:relative;
+      overflow:hidden;
+    }
+    .price-card.popular{
+      border-color:rgba(255,138,0,.44);
+      box-shadow:0 18px 34px rgba(255,138,0,.12);
+    }
+    .popular-badge{
+      position:absolute;
+      top:14px;
+      right:14px;
+      background:linear-gradient(135deg,var(--accent),#ffba4b);
+      color:#1a2533;
+      font-size:.78rem;
+      font-weight:900;
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .price{
+      font-size:2rem;
+      line-height:1.1;
+      font-weight:900;
+      color:var(--sub2);
+      margin:14px 0;
+    }
+    .price-list{
+      margin:16px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .price-list li{
+      color:var(--muted);
+      font-size:.95rem;
+      position:relative;
+      padding-left:18px;
+    }
+    .price-list li::before{
+      content:"・";
+      position:absolute;
+      left:0;
+      color:var(--sub);
+      font-weight:900;
+    }
+
+    .flow-step{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:20px;
+      min-height:100%;
+    }
+    .flow-step small{
+      display:inline-block;
+      margin-bottom:10px;
+      color:var(--sub);
+      font-weight:900;
+      letter-spacing:.06em;
+    }
+    .flow-step h3{
+      margin:0 0 10px;
+      font-size:1.08rem;
+    }
+    .flow-step p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .cta-band{
+      background:
+        radial-gradient(circle at left top, rgba(93,214,255,.18), transparent 30%),
+        linear-gradient(135deg, rgba(255,138,0,.95), rgba(238,110,0,.95));
+      color:#1a2433;
+      border-radius:30px;
+      padding:42px 28px;
+      box-shadow:0 24px 50px rgba(255,138,0,.18);
+    }
+    .cta-band h2{
+      margin:0 0 10px;
+      font-size:clamp(1.7rem,3vw,2.4rem);
+      line-height:1.3;
+    }
+    .cta-band p{
+      margin:0 0 22px;
+      color:#2f3a49;
+      font-weight:700;
+    }
+    .cta-band .btn-primary{
+      background:#fff;
+      color:#1b2430;
+      box-shadow:none;
+    }
+    .cta-band .safe-note{
+      color:#3a4658;
+    }
+
+    .form-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+    .form-panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .contact-points{
+      display:grid;
+      gap:14px;
+      margin-top:20px;
+    }
+    .contact-box{
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px;
+      padding:16px 18px;
+    }
+    .contact-box strong{
+      display:block;
+      margin-bottom:6px;
+      color:#fff;
+    }
+
+    form{
+      display:grid;
+      gap:16px;
+    }
+    .field{
+      display:grid;
+      gap:8px;
+    }
+    .field label{
+      font-size:.95rem;
+      font-weight:800;
+      color:#f2f7ff;
+    }
+    .field input,
+    .field textarea,
+    .field select{
+      width:100%;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border-radius:14px;
+      padding:14px 15px;
+      font:inherit;
+      outline:none;
+      transition:border-color .2s ease, background .2s ease;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder{
+      color:#b6c4d7;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus{
+      border-color:rgba(93,214,255,.55);
+      background:rgba(255,255,255,.10);
+    }
+    .field textarea{
+      min-height:150px;
+      resize:vertical;
+    }
+
+    .form-note{
+      color:var(--muted);
+      font-size:.92rem;
+      margin-top:4px;
+    }
+
+    .footer{
+      border-top:1px solid var(--line);
+      padding:28px 0 42px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .floating-cta{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:1001;
+    }
+    .floating-cta a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:0 20px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),#ffb033);
+      color:#1a2433;
+      font-weight:900;
+      box-shadow:0 18px 36px rgba(255,138,0,.28);
+    }
+
+    @media (max-width: 1080px){
+      .hero-wrap,
+      .form-wrap,
+      .grid-4{
+        grid-template-columns:1fr 1fr;
+      }
+      .grid-3{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media (max-width: 820px){
+      .hero-wrap,
+      .form-wrap,
+      .grid-2,
+      .grid-3,
+      .grid-4{
+        grid-template-columns:1fr;
+      }
+      .hero{
+        padding-top:48px;
+      }
+      .section{
+        padding:68px 0;
+      }
+      .nav-links{
+        display:none;
+      }
+      .logo{
+        font-size:1.15rem;
+      }
+      .floating-cta{
+        right:12px;
+        left:12px;
+        bottom:12px;
+      }
+      .floating-cta a{
+        width:100%;
+      }
+      h1{
+        font-size:clamp(2rem, 10vw, 3rem);
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<section class="hero">
-  <div class="container">
-    <h1>電気代最大35%削減。最短7日導入。</h1>
-    <p>500件以上の施工実績</p>
-    <a href="#" class="cta">無料見積もり</a>
-  </div>
-</section>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#top" class="logo">ProCool <span>Air Design</span></a>
+        <div class="nav-links">
+          <a href="#problem">課題</a>
+          <a href="#solution">解決策</a>
+          <a href="#trust">実績</a>
+          <a href="#price">料金</a>
+          <a href="#form">お問い合わせ</a>
+          <a href="#form" class="nav-cta">無料見積もり</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-<section>
-  <div class="container grid">
-    <div class="card">電気代が高い</div>
-    <div class="card">効きムラ</div>
-    <div class="card">故障リスク</div>
-  </div>
-</section>
+  <main>
+    <section class="hero" id="top">
+      <div class="container hero-wrap">
+        <div>
+          <span class="eyebrow">業務用エアコン専門・全国対応</span>
+          <h1>電気代最大35%削減。<br>最短7日で導入できる業務用エアコン設計。</h1>
+          <p class="hero-lead">
+            店舗・オフィス・クリニック・サロン向けに、空調効率とデザイン性を両立したプランをご提案。
+            現地調査から設計、施工、保守までワンストップで対応し、固定費削減と快適な空間づくりを同時に実現します。
+          </p>
+          <ul class="hero-list">
+            <li>500件超の施工実績をもとに最適な機種と配置を提案</li>
+            <li>現地調査〜概算見積もり提出まで最短24時間</li>
+            <li>工事後の保守・故障対応・補助金相談まで一括サポート</li>
+          </ul>
+          <div class="cta-row">
+            <a href="#form" class="btn btn-primary">今すぐ無料見積もり（最短30秒）</a>
+            <a href="#cases" class="btn btn-secondary">施工事例を見る</a>
+          </div>
+          <p class="safe-note">完全無料・しつこい営業なし・相見積もり歓迎</p>
+        </div>
 
-<section>
-  <div class="container grid">
-    <div class="card">¥398,000〜</div>
-    <div class="card">¥780,000〜</div>
-    <div class="card">¥1,280,000〜</div>
-  </div>
-</section>
+        <aside class="hero-card">
+          <h3>お問い合わせが増える理由</h3>
+          <p>「電気代」「故障リスク」「来店時の快適さ」を同時に改善できる提案だからです。</p>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <strong>500件+</strong>
+              <span>施工実績</span>
+            </div>
+            <div class="kpi">
+              <strong>98%</strong>
+              <span>顧客満足度</span>
+            </div>
+            <div class="kpi">
+              <strong>35%</strong>
+              <span>最大削減率</span>
+            </div>
+            <div class="kpi">
+              <strong>7日</strong>
+              <span>最短導入</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<section>
-  <div class="container">
-    <h2>無料見積もり</h2>
-    <form>
-      <input type="text" placeholder="名前">
-      <input type="text" placeholder="電話番号">
-      <textarea placeholder="内容"></textarea>
-      <button class="cta">送信</button>
-    </form>
+    <section class="section-tight" id="problem">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">PROBLEM</div>
+          <h2>こんなお悩みありませんか？</h2>
+          <p>課題を放置すると、電気代増加・客離れ・スタッフ満足度低下・突然の故障による営業損失につながります。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card problem-card">
+            <h3>電気代が高すぎる</h3>
+            <p>旧型機器や設定不備により、必要以上の電力を消費しているケースが少なくありません。</p>
+          </article>
+          <article class="card problem-card">
+            <h3>効きムラでクレームが出る</h3>
+            <p>レイアウトや風量設計が合っていないと、暑い席・寒い席が生まれ、顧客満足度が下がります。</p>
+          </article>
+          <article class="card problem-card">
+            <h3>突然の故障が不安</h3>
+            <p>繁忙期の停止は売上に直結します。事前の対策と保守設計が重要です。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="solution">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">SOLUTION</div>
+          <h2>原因を特定し、利益に直結する解決策を実行します</h2>
+          <p>単に入れ替えるだけではなく、現場ごとの課題と導線に合わせて「効く・省エネ・長持ち」をつくります。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3>1. 原因分析</h3>
+            <p>電力使用、温度ムラ、機器劣化、配管条件を調査し、無駄の発生ポイントを可視化します。</p>
+          </article>
+          <article class="card">
+            <h3>2. 最適設計</h3>
+            <p>業種・座席配置・導線に合わせて能力と配置を調整。必要な箇所に必要な空調を届けます。</p>
+          </article>
+          <article class="card">
+            <h3>3. 継続改善</h3>
+            <p>保守、点検、運用相談により、導入後も省エネ性と快適性を維持しやすい体制を整えます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="strength">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">STRENGTH</div>
+          <h2>私たちの強み</h2>
+          <p>施工品質だけでなく、問い合わせ前の不安を減らし、導入後の運用まで支える体制を整えています。</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="strength-list">
+              <div class="strength-item">施工・保守まで一社完結で、担当が分散せず手間を削減</div>
+              <div class="strength-item">店舗デザインを崩さない空調レイアウト提案</div>
+              <div class="strength-item">補助金・リース相談で初期費用の不安を軽減</div>
+              <div class="strength-item">工事後も相談しやすいサポート体制</div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>無料相談で分かること</h3>
+            <p style="margin-bottom:16px;color:var(--muted);">
+              お問い合わせいただくと、現状の課題整理から、導入目安・機種の方向性・費用感まで分かりやすくご案内します。
+            </p>
+            <div class="cta-row">
+              <a href="#form" class="btn btn-primary">無料で費用シミュレーションを受ける</a>
+            </div>
+            <p class="safe-note">入力は30秒。担当者が最短当日中にご連絡します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">TRUST</div>
+          <h2>実績・信頼（E-E-A-T）</h2>
+          <p>数字とお客様の評価を明示し、安心して相談しやすい情報をまとめています。</p>
+        </div>
+
+        <div class="grid-3 trust-stats">
+          <article class="card">
+            <h3>導入実績</h3>
+            <div class="big-num">500件以上</div>
+            <p>飲食店・美容室・オフィス・医療施設など、幅広い業種に対応。</p>
+          </article>
+          <article class="card">
+            <h3>顧客満足度</h3>
+            <div class="big-num">98%</div>
+            <p>施工品質・対応スピード・説明の分かりやすさで高評価。</p>
+          </article>
+          <article class="card">
+            <h3>継続契約率</h3>
+            <div class="big-num">93%</div>
+            <p>保守契約の年間更新率。導入後も長く任せていただいています。</p>
+          </article>
+        </div>
+
+        <div class="section-head" style="margin-top:44px;">
+          <h2 style="font-size:1.8rem;">お客様の声</h2>
+        </div>
+        <div class="grid-3">
+          <article class="card voice-card">
+            <p>「導入3ヶ月で電気代が約28%下がりました。客席の温度ムラも解消され、クレームがなくなりました。」</p>
+            <p class="voice-name">飲食店オーナー / 東京都</p>
+          </article>
+          <article class="card voice-card">
+            <p>「施工が早く、営業を止めずに入れ替えできたのが助かりました。説明も明確で安心感がありました。」</p>
+            <p class="voice-name">美容サロン経営 / 神奈川県</p>
+          </article>
+          <article class="card voice-card">
+            <p>「見積もりが分かりやすく、追加費用もなし。保守の相談もしやすく、長く付き合える会社だと感じました。」</p>
+            <p class="voice-name">クリニック事務長 / 千葉県</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="cases">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">CASE</div>
+          <h2>施工事例</h2>
+          <p>導入前後の変化がイメージしやすいよう、代表的な事例を掲載しています。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card case-card">
+            <h3>事例A：30坪カフェ</h3>
+            <p>旧式機器から更新し、電気代を月平均31%削減。導入期間は6日で営業への影響も最小限でした。</p>
+            <span class="meta">電気代削減 / 31%</span>
+          </article>
+          <article class="card case-card">
+            <h3>事例B：美容室2フロア</h3>
+            <p>温度ムラを解消し、スタッフの作業環境と来店時の快適性が向上。デザイン性も損なわない仕上がりに。</p>
+            <span class="meta">温度ムラ改善</span>
+          </article>
+          <article class="card case-card">
+            <h3>事例C：中規模オフィス</h3>
+            <p>故障停止リスクを大幅に低減。更新後は保守のしやすさも改善し、長期的な運用コストを抑制。</p>
+            <span class="meta">保守性向上</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="price">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">PRICE</div>
+          <h2>料金プラン</h2>
+          <p>導入規模や業種に合わせて、分かりやすい目安プランをご用意しています。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card price-card">
+            <h3>Compact</h3>
+            <div class="price">¥398,000〜</div>
+            <p>小規模店舗向け。基本工事・初期設定込みのスタンダードプラン。</p>
+            <ul class="price-list">
+              <li>小型店舗・個人サロン向け</li>
+              <li>基本設計・基本工事込み</li>
+              <li>初めての導入におすすめ</li>
+            </ul>
+          </article>
+
+          <article class="card price-card popular">
+            <span class="popular-badge">人気</span>
+            <h3>Business</h3>
+            <div class="price">¥780,000〜</div>
+            <p>オフィス・中規模施設向け。快適性と省エネ性を両立したバランスプラン。</p>
+            <ul class="price-list">
+              <li>ゾーン制御対応</li>
+              <li>複数部屋・複数台構成に対応</li>
+              <li>費用対効果を重視する方向け</li>
+            </ul>
+          </article>
+
+          <article class="card price-card">
+            <h3>Premium</h3>
+            <div class="price">¥1,280,000〜</div>
+            <p>大型施設向け。高負荷運用や景観重視の空間にも対応する上位プラン。</p>
+            <ul class="price-list">
+              <li>大型店舗・ホテル向け</li>
+              <li>埋込設計・意匠性重視</li>
+              <li>保守契約セット提案可</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="flow">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">FLOW</div>
+          <h2>導入までの流れ</h2>
+          <p>お問い合わせから施工完了、その後の運用まで分かりやすくご案内します。</p>
+        </div>
+        <div class="grid-4">
+          <div class="flow-step">
+            <small>STEP 1</small>
+            <h3>お問い合わせ</h3>
+            <p>現状の課題、希望時期、概算予算などをヒアリングします。</p>
+          </div>
+          <div class="flow-step">
+            <small>STEP 2</small>
+            <h3>現地調査</h3>
+            <p>配管経路、容量、機器の状態を確認し、課題を整理します。</p>
+          </div>
+          <div class="flow-step">
+            <small>STEP 3</small>
+            <h3>見積もり・ご提案</h3>
+            <p>最適機種、工事内容、費用、スケジュールを分かりやすく提示します。</p>
+          </div>
+          <div class="flow-step">
+            <small>STEP 4</small>
+            <h3>施工・運用開始</h3>
+            <p>安全に施工を進め、導入後の保守・相談まで継続して対応します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="cta-band center">
+          <h2>まずは無料見積もりで、削減できる金額を確認しませんか？</h2>
+          <p>最短当日中に概算費用をご案内します。導入しなくても問題ありません。</p>
+          <div class="cta-row" style="justify-content:center;">
+            <a href="#form" class="btn btn-primary">今すぐ無料見積もり（最短30秒）</a>
+          </div>
+          <p class="safe-note">完全無料・しつこい営業なし・相見積もり歓迎</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="form">
+      <div class="container">
+        <div class="section-head">
+          <div class="tag">CONTACT</div>
+          <h2>無料見積もりフォーム</h2>
+          <p>必要事項をご入力ください。内容確認後、担当者よりご連絡いたします。</p>
+        </div>
+
+        <div class="form-wrap">
+          <div class="form-panel">
+            <h3 style="margin-top:0;">お問い合わせ前にご確認ください</h3>
+            <p style="color:var(--muted);margin-bottom:18px;">
+              現地調査の有無や設置場所により、正式なお見積もりは変動します。まずは概算相談からでも問題ありません。
+            </p>
+            <div class="contact-points">
+              <div class="contact-box">
+                <strong>対応内容</strong>
+                交換・新設・増設・省エネ相談・補助金相談・保守相談
+              </div>
+              <div class="contact-box">
+                <strong>対応エリア</strong>
+                全国対応（地域によりオンライン・協力会社連携を含む）
+              </div>
+              <div class="contact-box">
+                <strong>ご連絡目安</strong>
+                営業時間内のお問い合わせは最短当日中にご案内
+              </div>
+            </div>
+          </div>
+
+          <div class="form-panel">
+            <form>
+              <div class="field">
+                <label for="name">お名前</label>
+                <input id="name" name="name" type="text" placeholder="例）山田 太郎" required>
+              </div>
+
+              <div class="field">
+                <label for="tel">電話番号</label>
+                <input id="tel" name="tel" type="tel" placeholder="例）090-1234-5678" required>
+              </div>
+
+              <div class="field">
+                <label for="company">会社名</label>
+                <input id="company" name="company" type="text" placeholder="例）株式会社サンプル">
+              </div>
+
+              <div class="field">
+                <label for="type">ご相談種別</label>
+                <select id="type" name="type">
+                  <option>新設</option>
+                  <option>入れ替え</option>
+                  <option>増設</option>
+                  <option>保守・メンテナンス</option>
+                  <option>省エネ相談</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message">ご相談内容</label>
+                <textarea id="message" name="message" placeholder="現状の課題・希望時期・設置場所・台数などをご入力ください"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">無料で見積もりを依頼する</button>
+              <p class="form-note">送信後の電話・メールは、ご都合の良い時間帯に配慮してご連絡します。</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-cta">
+    <a href="#form">無料見積もりはこちら</a>
   </div>
-</section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>© 2026 ProCool Air Design. All rights reserved.</div>
+      <div>業務用エアコン設計・施工・保守 / 無料見積もり受付中</div>
+    </div>
+  </footer>
 
 </body>
 </html>
