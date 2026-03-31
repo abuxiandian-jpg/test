@@ -1,333 +1,177 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ProCool Air Design | 業務用エアコン</title>
-    <style>
-      :root {
-        --bg: #071326;
-        --bg-soft: #0f223f;
-        --card: rgba(255, 255, 255, 0.08);
-        --text: #eef6ff;
-        --muted: #b3c7df;
-        --accent: #5dd6ff;
-        --accent-2: #7df0c0;
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>業務用エアコン無料見積もりLP | ProCool Air Design</title>
 
-      * {
-        box-sizing: border-box;
-      }
+<style>
+:root {
+  --bg: #f6f9ff;
+  --text: #16233b;
+  --muted: #55627a;
+  --line: #dbe6f5;
+  --card: #ffffff;
+  --primary: #ff7a00;
+  --primary-dark: #dc6200;
+  --sub: #0c66ff;
+}
 
-      body {
-        margin: 0;
-        font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-        color: var(--text);
-        background: radial-gradient(circle at 10% 20%, #174780 0%, var(--bg) 40%),
-          linear-gradient(145deg, #061124, #0d1f3a);
-        min-height: 100vh;
-      }
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+}
 
-      .container {
-        width: min(1120px, 92vw);
-        margin: 0 auto;
-      }
+.container {
+  width: min(1100px, 92vw);
+  margin: auto;
+}
 
-      header {
-        position: sticky;
-        top: 0;
-        backdrop-filter: blur(10px);
-        background: rgba(7, 19, 38, 0.7);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        z-index: 10;
-      }
+header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
 
-      nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 14px 0;
-      }
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+}
 
-      .logo {
-        font-weight: 700;
-        letter-spacing: 0.03em;
-      }
+.logo span {
+  color: var(--sub);
+}
 
-      .logo span {
-        color: var(--accent);
-      }
+.hero {
+  padding: 80px 0;
+}
 
-      .nav-links {
-        display: flex;
-        gap: 24px;
-      }
+h1 {
+  font-size: 2.5rem;
+}
 
-      .nav-links a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 0.95rem;
-      }
+.btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+}
 
-      .nav-links a:hover {
-        color: var(--text);
-      }
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
 
-      .hero {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 30px;
-        align-items: center;
-        padding: 80px 0 64px;
-      }
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
 
-      .badge {
-        display: inline-block;
-        border: 1px solid rgba(93, 214, 255, 0.5);
-        color: var(--accent);
-        border-radius: 999px;
-        padding: 6px 14px;
-        font-size: 0.8rem;
-        margin-bottom: 18px;
-      }
+section {
+  padding: 60px 0;
+}
 
-      h1 {
-        font-size: clamp(2rem, 4vw, 3.2rem);
-        line-height: 1.2;
-        margin: 0;
-      }
+.price {
+  font-size: 1.6rem;
+  color: var(--sub);
+  font-weight: bold;
+}
 
-      .hero p {
-        color: var(--muted);
-        line-height: 1.9;
-        margin: 20px 0 30px;
-      }
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid var(--line);
+}
 
-      .cta-group {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
+@media(max-width:900px){
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
 
-      .btn {
-        border: none;
-        border-radius: 999px;
-        padding: 12px 22px;
-        font-weight: 700;
-        cursor: pointer;
-      }
+<body>
 
-      .btn-primary {
-        color: #01263d;
-        background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      }
-
-      .btn-secondary {
-        background: transparent;
-        color: var(--text);
-        border: 1px solid rgba(255, 255, 255, 0.35);
-      }
-
-      .hero-card {
-        background: var(--card);
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 22px;
-        padding: 26px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-      }
-
-      .hero-card h3 {
-        margin-top: 0;
-      }
-
-      .kpi {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-
-      .kpi div {
-        background: rgba(255, 255, 255, 0.06);
-        border-radius: 14px;
-        padding: 14px;
-      }
-
-      .kpi strong {
-        display: block;
-        font-size: 1.4rem;
-      }
-
-      section {
-        padding: 54px 0;
-      }
-
-      .section-title {
-        margin-top: 0;
-        font-size: 1.8rem;
-      }
-
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 18px;
-      }
-
-      .card {
-        background: var(--card);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 18px;
-        padding: 22px;
-      }
-
-      .price {
-        font-size: 1.7rem;
-        font-weight: 700;
-        color: var(--accent-2);
-      }
-
-      .flow {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 14px;
-      }
-
-      .step {
-        background: rgba(255, 255, 255, 0.06);
-        border-radius: 14px;
-        padding: 16px;
-      }
-
-      .step small {
-        color: var(--accent);
-      }
-
-      footer {
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 30px 0;
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      @media (max-width: 900px) {
-        .hero,
-        .cards,
-        .flow {
-          grid-template-columns: 1fr;
-        }
-
-        .nav-links {
-          display: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <nav>
-          <div class="logo">ProCool <span>Air Design</span></div>
-          <div class="nav-links">
-            <a href="#service">サービス</a>
-            <a href="#plan">プラン</a>
-            <a href="#flow">導入の流れ</a>
-            <a href="#contact">お問い合わせ</a>
-          </div>
-        </nav>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">ProCool <span>Air Design</span></div>
+      <div>
+        <a href="#form">見積もり</a>
       </div>
-    </header>
+    </nav>
+  </div>
+</header>
 
-    <main class="container">
-      <section class="hero" id="top">
-        <div>
-          <span class="badge">業務用エアコン専門・全国対応</span>
-          <h1>
-            空間の印象まで整える、<br />
-            おしゃれな業務用エアコン設計。
-          </h1>
-          <p>
-            オフィス・店舗・クリニック・サロン向けに、デザイン性と省エネ性を両立した空調プランをご提案。
-            現地調査から施工、メンテナンスまでワンストップで対応します。
-          </p>
-          <div class="cta-group">
-            <button class="btn btn-primary">無料見積もりを依頼する</button>
-            <button class="btn btn-secondary">施工事例を見る</button>
-          </div>
-        </div>
+<section class="hero">
+  <div class="container">
+    <h1>電気代最大35%削減。最短7日導入。</h1>
+    <p>500件以上の施工実績で最適な空調設計をご提案。</p>
+    <a href="#form" class="btn">無料見積もり</a>
+  </div>
+</section>
 
-        <aside class="hero-card">
-          <h3>おすすめ導入パッケージ</h3>
-          <p>スタイリッシュな店舗・オフィス向けの人気プランです。</p>
-          <div class="kpi">
-            <div><strong>最大35%</strong>電気代削減</div>
-            <div><strong>最短7日</strong>施工完了</div>
-            <div><strong>10年</strong>長期保証</div>
-            <div><strong>24時間</strong>緊急サポート</div>
-          </div>
-        </aside>
-      </section>
+<section>
+  <div class="container grid-3">
+    <div class="card">
+      <h3>電気代が高い</h3>
+      <p>無駄な電力消費を削減</p>
+    </div>
+    <div class="card">
+      <h3>効きムラ</h3>
+      <p>空調設計で改善</p>
+    </div>
+    <div class="card">
+      <h3>故障リスク</h3>
+      <p>保守で回避</p>
+    </div>
+  </div>
+</section>
 
-      <section id="service">
-        <h2 class="section-title">選ばれる理由</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>空間デザイン提案</h3>
-            <p>内装や照明との調和まで考えた吹出口・室内機レイアウトを設計します。</p>
-          </article>
-          <article class="card">
-            <h3>高効率インバーター機</h3>
-            <p>省エネ性能の高い最新モデルを用途別に選定し、ランニングコストを最適化。</p>
-          </article>
-          <article class="card">
-            <h3>保守管理の自動化</h3>
-            <p>IoT遠隔監視により、異常の早期検知と定期メンテナンスをスマート化します。</p>
-          </article>
-        </div>
-      </section>
+<section>
+  <div class="container grid-3">
+    <div class="card">
+      <h3>Compact</h3>
+      <p class="price">¥398,000〜</p>
+    </div>
+    <div class="card">
+      <h3>Business</h3>
+      <p class="price">¥780,000〜</p>
+    </div>
+    <div class="card">
+      <h3>Premium</h3>
+      <p class="price">¥1,280,000〜</p>
+    </div>
+  </div>
+</section>
 
-      <section id="plan">
-        <h2 class="section-title">料金プラン</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Compact Plan</h3>
-            <p class="price">¥398,000〜</p>
-            <p>小規模店舗・個人サロン向け。省スペース設計のベーシックプラン。</p>
-          </article>
-          <article class="card">
-            <h3>Design Office Plan</h3>
-            <p class="price">¥780,000〜</p>
-            <p>中規模オフィス向け。ゾーニング制御で快適性と省エネを両立。</p>
-          </article>
-          <article class="card">
-            <h3>Premium Hospitality Plan</h3>
-            <p class="price">¥1,280,000〜</p>
-            <p>ホテル・大型店舗向け。景観重視の埋込設計＋高耐久メンテ契約込み。</p>
-          </article>
-        </div>
-      </section>
+<section id="form">
+  <div class="container">
+    <h2>無料見積もり</h2>
+    <form>
+      <input type="text" placeholder="名前" required><br><br>
+      <input type="tel" placeholder="電話番号" required><br><br>
+      <textarea placeholder="内容"></textarea><br><br>
+      <button class="btn">送信する</button>
+    </form>
+  </div>
+</section>
 
-      <section id="flow">
-        <h2 class="section-title">導入までの流れ</h2>
-        <div class="flow">
-          <div class="step"><small>STEP 1</small><h3>ヒアリング</h3><p>課題・予算・希望デザインを確認。</p></div>
-          <div class="step"><small>STEP 2</small><h3>現地調査</h3><p>配管経路や容量を正確に診断。</p></div>
-          <div class="step"><small>STEP 3</small><h3>設計・見積</h3><p>最適機種と施工スケジュールを提示。</p></div>
-          <div class="step"><small>STEP 4</small><h3>施工・運用</h3><p>安全施工後、運用サポートまで対応。</p></div>
-        </div>
-      </section>
+<footer>
+© 2026 ProCool Air Design
+</footer>
 
-      <section id="contact">
-        <h2 class="section-title">お問い合わせ</h2>
-        <div class="card">
-          <p>
-            デザイン重視の空調更新や新規開業に関するご相談は、下記までお気軽にご連絡ください。
-          </p>
-          <p><strong>TEL:</strong> 03-1234-5678 / <strong>MAIL:</strong> hello@procool-air.jp</p>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">© 2026 ProCool Air Design. All rights reserved.</div>
-    </footer>
-  </body>
+</body>
 </html>
